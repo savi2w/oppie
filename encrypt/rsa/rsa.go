@@ -10,7 +10,7 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/savi2w/zoldyck/config"
+	"github.com/savi2w/oppie/config"
 )
 
 type RSA struct {

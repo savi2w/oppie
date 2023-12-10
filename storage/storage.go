@@ -13,7 +13,7 @@ type Badger struct {
 	DB *badger.DB
 }
 
-const DatabaseFile = "ZoldyckBadgerDB"
+const DatabaseFile = "OPP-BadgerDB"
 
 func New() (*Badger, error) {
 	path := filepath.Join(os.TempDir(), DatabaseFile)

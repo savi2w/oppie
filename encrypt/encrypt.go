@@ -1,8 +1,8 @@
 package encrypt
 
 import (
-	"github.com/savi2w/zoldyck/encrypt/aes"
-	"github.com/savi2w/zoldyck/encrypt/rsa"
+	"github.com/savi2w/oppie/encrypt/aes"
+	"github.com/savi2w/oppie/encrypt/rsa"
 )
 
 type Core struct {

@@ -43,7 +43,6 @@ func GetIgnoreFolders() []string {
 		"\\.rustup\\",
 		"\\.vscode\\",
 		"\\Riot Games\\",
-		"\\zoldyck.exe",
 		"\\Repos\\",
 		"\\Games\\",
 		"\\.cargo\\",

@@ -4,10 +4,10 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/savi2w/zoldyck/encrypt"
-	"github.com/savi2w/zoldyck/osutil"
-	"github.com/savi2w/zoldyck/storage"
-	"github.com/savi2w/zoldyck/traversal"
+	"github.com/savi2w/oppie/encrypt"
+	"github.com/savi2w/oppie/osutil"
+	"github.com/savi2w/oppie/storage"
+	"github.com/savi2w/oppie/traversal"
 )
 
 func main() {

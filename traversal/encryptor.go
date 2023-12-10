@@ -6,10 +6,10 @@ import (
 	"sync"
 
 	"github.com/dgraph-io/badger/v4"
-	"github.com/savi2w/zoldyck/encrypt"
-	"github.com/savi2w/zoldyck/fsutil"
-	"github.com/savi2w/zoldyck/model"
-	"github.com/savi2w/zoldyck/storage"
+	"github.com/savi2w/oppie/encrypt"
+	"github.com/savi2w/oppie/fsutil"
+	"github.com/savi2w/oppie/model"
+	"github.com/savi2w/oppie/storage"
 )
 
 type Encryptor struct {

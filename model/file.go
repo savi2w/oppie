@@ -3,7 +3,7 @@ package model
 import (
 	"encoding/json"
 
-	"github.com/savi2w/zoldyck/storage"
+	"github.com/savi2w/oppie/storage"
 )
 
 type File struct {

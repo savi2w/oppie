@@ -7,7 +7,7 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/savi2w/zoldyck/storage"
+	"github.com/savi2w/oppie/storage"
 )
 
 type Walker struct {

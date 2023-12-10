@@ -3,9 +3,9 @@ package traversal
 import (
 	"encoding/json"
 
-	"github.com/savi2w/zoldyck/encrypt/sha"
-	"github.com/savi2w/zoldyck/model"
-	"github.com/savi2w/zoldyck/storage"
+	"github.com/savi2w/oppie/encrypt/sha"
+	"github.com/savi2w/oppie/model"
+	"github.com/savi2w/oppie/storage"
 )
 
 func createFile(path string, badger *storage.Badger) error {

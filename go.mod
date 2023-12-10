@@ -1,4 +1,4 @@
-module github.com/savi2w/zoldyck
+module github.com/savi2w/oppie
 
 go 1.21.5
 

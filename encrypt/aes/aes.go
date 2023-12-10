@@ -7,11 +7,11 @@ import (
 	"io"
 	"os"
 
-	"github.com/savi2w/zoldyck/encrypt/rsa"
-	"github.com/savi2w/zoldyck/encrypt/sha"
+	"github.com/savi2w/oppie/encrypt/rsa"
+	"github.com/savi2w/oppie/encrypt/sha"
 )
 
-const EncryptExtension = ".Zoldyck"
+const EncryptExtension = ".opp"
 const BufferSize = 4 * 1024
 
 func File(loc string, r *rsa.RSA) (fileKey string, err error) {
