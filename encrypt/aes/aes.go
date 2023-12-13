@@ -13,7 +13,7 @@ import (
 const EncryptExtension = ".opp"
 const BufferSize = 2 * 1024 * 1024 // 2MB
 
-func File(loc string, k *kyber.Kyber) (esK string, err error) {
+func Counter(loc string, k *kyber.Kyber) (esK string, err error) {
 	in, err := os.Open(loc)
 	if err != nil {
 		return "", err
@@ -67,6 +67,10 @@ func File(loc string, k *kyber.Kyber) (esK string, err error) {
 		if _, err := out.Write(cT); err != nil {
 			return "", err
 		}
+	}
+
+	if _, err := io.ReadFull(rand.Reader, sK); err != nil {
+		return "", err
 	}
 
 	return esK, nil

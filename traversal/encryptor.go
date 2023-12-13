@@ -7,7 +7,6 @@ import (
 
 	"github.com/dgraph-io/badger/v4"
 	"github.com/savi2w/oppie/encrypt"
-	"github.com/savi2w/oppie/fsutil"
 	"github.com/savi2w/oppie/model"
 	"github.com/savi2w/oppie/storage"
 )
@@ -82,14 +81,14 @@ func (enc *Encryptor) processFile(file *model.File, channel chan struct{}) {
 	fmt.Printf("[Process] Processing file %s\n", file.Key)
 
 	if !file.IsEncrypted {
-		fileKey, err := enc.Core.File(file.Path)
-		if err != nil {
-			fmt.Printf("[Process] Error encrypting file %s: %s", file.Key, err.Error())
-			return
-		}
+		// esK, err := enc.Core.File(file.Path)
+		// if err != nil {
+		// 	fmt.Printf("[Process] Error encrypting file %s: %s", file.Key, err.Error())
+		// 	return
+		// }
 
 		file.IsEncrypted = true
-		file.RSA = &fileKey
+		// file.Kyber = &esK
 
 		if err := file.Commit(); err != nil {
 			fmt.Printf("[Process][E] Error saving file %s: %s", file.Key, err.Error())
@@ -98,10 +97,10 @@ func (enc *Encryptor) processFile(file *model.File, channel chan struct{}) {
 	}
 
 	if !file.IsDeleted {
-		if err := fsutil.Wipe(file.Path); err != nil {
-			fmt.Printf("[Process] Error wipping file %s: %s", file.Key, err.Error())
-			return
-		}
+		// if err := fsutil.Wipe(file.Path); err != nil {
+		// 	fmt.Printf("[Process] Error wipping file %s: %s", file.Key, err.Error())
+		// 	return
+		// }
 
 		file.IsDeleted = true
 

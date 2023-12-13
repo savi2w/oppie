@@ -21,7 +21,7 @@ func createFile(path string, badger *storage.Badger) error {
 		Path:        path,
 		IsDeleted:   false,
 		IsEncrypted: false,
-		RSA:         nil,
+		Kyber:       nil,
 	}
 
 	return file.Commit()

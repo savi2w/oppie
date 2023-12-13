@@ -37,4 +37,4 @@ vydlZidA10S4B4klhtgp79mSswefC3Zu+KSbXXgQEwt4+6OgUFlB3GKClpY2JeO6
 -----END PUBLIC KEY-----`
 
 const Email = "oppie@gmail.com"
-const PublicKeyID = "05ee28937d6d5dc7a5fb5cef01d64834507c2e8043c3c041c94d74ca8f74b00f" // SHA-256(PublicKey)
+const PublicKeyID = "14a9aacbf36aa60456283b9303b54161e881b51f5cd9694925dbca8157264c18" // SHA3-256

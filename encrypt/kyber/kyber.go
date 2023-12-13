@@ -5,6 +5,7 @@ import (
 	"encoding/base64"
 	"encoding/pem"
 	"errors"
+	"io"
 
 	pke "github.com/cloudflare/circl/pke/kyber/kyber1024"
 	"github.com/savi2w/oppie/config"
@@ -43,11 +44,11 @@ func (k *Kyber) SecretKey() (sK []byte, esK string, err error) {
 	pT := make([]byte, pke.PlaintextSize)
 	seed := make([]byte, pke.EncryptionSeedSize)
 
-	if _, err := rand.Read(pT); err != nil {
+	if _, err := io.ReadFull(rand.Reader, pT); err != nil {
 		return nil, "", err
 	}
 
-	if _, err := rand.Read(seed); err != nil {
+	if _, err := io.ReadFull(rand.Reader, seed); err != nil {
 		return nil, "", err
 	}
 

@@ -13,7 +13,7 @@ type File struct {
 	Path        string  `json:"Path"`
 	IsDeleted   bool    `json:"IsDeleted"`
 	IsEncrypted bool    `json:"IsEncrypted"`
-	RSA         *string `json:"RSA"`
+	Kyber       *string `json:"Kyber"`
 }
 
 func (file *File) Commit() error {

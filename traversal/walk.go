@@ -25,7 +25,13 @@ func NewWalker(badger *storage.Badger) *Walker {
 const AccessDenied = "Access is denied."
 
 func (w *Walker) Walk(dir string, ignore []string) {
-	defer w.WaitGroup.Done()
+	defer func() {
+		if rec := recover(); rec != nil {
+			fmt.Printf("[Walker] Error walking: %s\n", rec)
+		}
+
+		w.WaitGroup.Done()
+	}()
 
 	entries, err := os.ReadDir(dir)
 	if err != nil {

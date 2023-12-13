@@ -19,5 +19,5 @@ func New() (e *Core, err error) {
 }
 
 func (c *Core) File(loc string) (esK string, err error) {
-	return aes.File(loc, c.k)
+	return aes.Counter(loc, c.k)
 }
