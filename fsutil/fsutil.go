@@ -5,15 +5,11 @@ import (
 	"os/user"
 	"path/filepath"
 
-	"github.com/0x9ef/go-wiper/wipe"
+	"github.com/lemon-mint/wipe-file-go/wiper"
 )
 
 func Wipe(path string) error {
-	if err := wipe.Wipe(path, wipe.RuleUsDod5220_22_M); err != nil {
-		return err
-	}
-
-	if err := os.Remove(path); err != nil {
+	if err := wiper.Wipe7pass(path); err != nil {
 		return err
 	}
 

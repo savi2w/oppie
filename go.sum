@@ -1,6 +1,4 @@
 cloud.google.com/go v0.26.0/go.mod h1:aQUYkXzVsufM+DwF1aE+0xfcU+56JwCaLick0ClmMTw=
-github.com/0x9ef/go-wiper v0.0.0-20211115141551-9c4041500a2a h1:o0WzPchfdL/GsvOsbqKEaOTnkTttisKcRU947xLkLTw=
-github.com/0x9ef/go-wiper v0.0.0-20211115141551-9c4041500a2a/go.mod h1:9GOLE8Yjc8EJQJPKEBqHFCT2P+HdNPrRjeWIw2vh2E0=
 github.com/BurntSushi/toml v0.3.1/go.mod h1:xHWCNGjB5oqiDr8zfno3MHue2Ht5sIBksp03qcyfWMU=
 github.com/cespare/xxhash/v2 v2.1.1/go.mod h1:VGX0DQ3Q6kWi7AoAeZDth3/j3BFtOZR5XLFGgcrjCOs=
 github.com/cespare/xxhash/v2 v2.2.0 h1:DC2CZ1Ep5Y4k3ZQ899DldepgrayRUGE6BBZ/cd9Cj44=
@@ -43,6 +41,12 @@ github.com/kisielk/errcheck v1.5.0/go.mod h1:pFxgyoBC7bSaBwPgfKdkLd5X25qrDl4LWUI
 github.com/kisielk/gotool v1.0.0/go.mod h1:XhKaO+MFFWcvkIS/tQcRk01m1F5IRFswLeQ+oQHNcck=
 github.com/klauspost/compress v1.12.3 h1:G5AfA94pHPysR56qqrkO2pxEexdDzrpFJ6yt/VqWxVU=
 github.com/klauspost/compress v1.12.3/go.mod h1:8dP1Hq4DHOhN9w426knH3Rhby4rFm6D8eO+e+Dq5Gzg=
+github.com/lemon-mint/wipe-file-go v1.1.2 h1:xEDwnChTTgPt5YIhUv3wGT/tn1VwMxeeLpxOmd02/to=
+github.com/lemon-mint/wipe-file-go v1.1.2/go.mod h1:sfiXz74q00gYrRz4zcbz5UufX8zm7hQDGBmg95W/vnc=
+github.com/micropkg/LicenseInjector v1.0.0 h1:S236/M0Gw9FT2LpxlIoEsOs1XMj2TKGbwoS/kEwa6KI=
+github.com/micropkg/LicenseInjector v1.0.0/go.mod h1:QiprSKthi00IZUL6yywQiphT/BsB/S3MeAB+6+dJTKk=
+github.com/micropkg/gstore v1.0.0 h1:DddhLRXZYvEbNtxxRJBkqZfrMx+bXmtCscAY83kg4Vs=
+github.com/micropkg/gstore v1.0.0/go.mod h1:g1aNlTbaDIBHpQQFUzI1Fb5JIVcDC2Cvl7M/rhJVj/w=
 github.com/pkg/errors v0.9.1 h1:FEBLx1zS214owpjy7qsBeixbURkuhQAwrK5UwLGTwt4=
 github.com/pkg/errors v0.9.1/go.mod h1:bwawxfHBFNV+L2hUp1rHADufV3IMtnDRdf1r5NINEl0=
 github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZbAQM=

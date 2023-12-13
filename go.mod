@@ -3,9 +3,9 @@ module github.com/savi2w/oppie
 go 1.21.5
 
 require (
-	github.com/0x9ef/go-wiper v0.0.0-20211115141551-9c4041500a2a
 	github.com/cloudflare/circl v1.3.6
 	github.com/dgraph-io/badger/v4 v4.2.0
+	github.com/lemon-mint/wipe-file-go v1.1.2
 	golang.org/x/crypto v0.16.0
 )
 
@@ -20,6 +20,8 @@ require (
 	github.com/golang/snappy v0.0.3 // indirect
 	github.com/google/flatbuffers v1.12.1 // indirect
 	github.com/klauspost/compress v1.12.3 // indirect
+	github.com/micropkg/LicenseInjector v1.0.0 // indirect
+	github.com/micropkg/gstore v1.0.0 // indirect
 	github.com/pkg/errors v0.9.1 // indirect
 	go.opencensus.io v0.22.5 // indirect
 	golang.org/x/net v0.10.0 // indirect
