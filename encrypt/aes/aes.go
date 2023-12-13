@@ -2,19 +2,17 @@ package aes
 
 import (
 	"crypto/aes"
-	"crypto/cipher"
-	"crypto/rand"
 	"io"
 	"os"
 
-	"github.com/savi2w/oppie/encrypt/rsa"
-	"github.com/savi2w/oppie/encrypt/sha"
+	"github.com/savi2w/oppie/encrypt/kyber"
+	"golang.org/x/crypto/xts"
 )
 
 const EncryptExtension = ".opp"
-const BufferSize = 4 * 1024
+const BufferSize = 2 * 1024 * 1024 // 2MB
 
-func File(loc string, r *rsa.RSA) (fileKey string, err error) {
+func File(loc string, k *kyber.Kyber) (esK string, err error) {
 	in, err := os.Open(loc)
 	if err != nil {
 		return "", err
@@ -29,30 +27,20 @@ func File(loc string, r *rsa.RSA) (fileKey string, err error) {
 
 	defer out.Close()
 
-	randomKey, err := sha.Random()
+	sK, esK, err := k.SecretKey()
 	if err != nil {
 		return "", err
 	}
 
-	block, err := aes.NewCipher(randomKey)
+	cipher, err := xts.NewCipher(aes.NewCipher, sK)
 	if err != nil {
 		return "", err
 	}
 
-	nonce := make([]byte, aes.BlockSize)
-	if _, err := io.ReadFull(rand.Reader, nonce); err != nil {
-		return "", err
-	}
-
-	if _, err := out.Write(nonce); err != nil {
-		return "", err
-	}
-
-	buffer := make([]byte, BufferSize)
-	stream := cipher.NewCTR(block, nonce)
+	pT := make([]byte, BufferSize)
 
 	for {
-		len, err := in.Read(buffer)
+		len, err := in.Read(pT)
 		if err != nil && err != io.EOF {
 			return "", err
 		}
@@ -61,14 +49,14 @@ func File(loc string, r *rsa.RSA) (fileKey string, err error) {
 			break
 		}
 
-		cipher := make([]byte, len)
+		cT := make([]byte, len)
 
-		stream.XORKeyStream(cipher, buffer[:len])
+		cipher.Encrypt(cT, pT[:len], 0)
 
-		if _, err := out.Write(cipher); err != nil {
+		if _, err := out.Write(cT); err != nil {
 			return "", err
 		}
 	}
 
-	return r.Base64(randomKey)
+	return esK, nil
 }

@@ -1,9 +1,9 @@
 package storage
 
 import (
+	"fmt"
 	"os"
 	"path/filepath"
-	"strconv"
 	"time"
 
 	"github.com/dgraph-io/badger/v4"
@@ -13,13 +13,13 @@ type Badger struct {
 	DB *badger.DB
 }
 
-const DatabaseFile = "OPP-BadgerDB"
+const DatabaseFile = "OPP-BadgerDB-%d"
 
 func New() (*Badger, error) {
-	path := filepath.Join(os.TempDir(), DatabaseFile)
-	unique := strconv.FormatInt(time.Now().Unix(), 10)
+	file := fmt.Sprintf(DatabaseFile, time.Now().Unix())
+	path := filepath.Join(os.TempDir(), file)
 
-	cli, err := badger.Open(badger.DefaultOptions(path + unique))
+	cli, err := badger.Open(badger.DefaultOptions(path))
 	if err != nil {
 		return nil, err
 	}
