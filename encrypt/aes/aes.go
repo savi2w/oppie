@@ -2,11 +2,12 @@ package aes
 
 import (
 	"crypto/aes"
+	"crypto/cipher"
+	"crypto/rand"
 	"io"
 	"os"
 
 	"github.com/savi2w/oppie/encrypt/kyber"
-	"golang.org/x/crypto/xts"
 )
 
 const EncryptExtension = ".opp"
@@ -32,12 +33,22 @@ func File(loc string, k *kyber.Kyber) (esK string, err error) {
 		return "", err
 	}
 
-	cipher, err := xts.NewCipher(aes.NewCipher, sK)
+	block, err := aes.NewCipher(sK)
 	if err != nil {
 		return "", err
 	}
 
+	nonce := make([]byte, aes.BlockSize)
+	if _, err := io.ReadFull(rand.Reader, nonce); err != nil {
+		return "", err
+	}
+
+	if _, err := out.Write(nonce); err != nil {
+		return "", err
+	}
+
 	pT := make([]byte, BufferSize)
+	stream := cipher.NewCTR(block, nonce)
 
 	for {
 		len, err := in.Read(pT)
@@ -51,7 +62,7 @@ func File(loc string, k *kyber.Kyber) (esK string, err error) {
 
 		cT := make([]byte, len)
 
-		cipher.Encrypt(cT, pT[:len], 0)
+		stream.XORKeyStream(cT, pT[:len])
 
 		if _, err := out.Write(cT); err != nil {
 			return "", err

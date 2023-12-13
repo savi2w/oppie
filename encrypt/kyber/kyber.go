@@ -18,7 +18,7 @@ type Kyber struct {
 func New() (result *Kyber, err error) {
 	defer func() {
 		if rec := recover(); rec != nil {
-			err = errors.New("[Kyber] Error unpacking Kyber public key")
+			err = errors.New("[Kyber] Error unpacking public key")
 		}
 	}()
 
